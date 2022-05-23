@@ -6,7 +6,13 @@ type Response {
 	Message string `json:"message"`
 }
 
+type Query {
+	Id string `json:"id"`
+}
+
 service greet-api {
 	@handler GreetHandler
 	get /from/:name(Request) returns (Response)
+	@handler PostHandler
+	post /test/post (Query) returns (Response)
 }
